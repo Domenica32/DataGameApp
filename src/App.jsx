@@ -9,16 +9,13 @@ const auth = getAuth(appFirebase)
 import Login from '../src/components/login'
 import Home from '../src/components/Home'
 import obtenerRolUsuario from '../src/RolUsuario'
-
 import '../src/Styles/App.scss'
 
 
 
 function App() {
-
   const [usuario, setUsuario] = useState(null)
   const [ruta, setRuta] = useState(null)
-
   useEffect(() =>{
    const unsubscribe = onAuthStateChanged(auth, (usuarioFirebase)=>{
 
@@ -38,8 +35,10 @@ function App() {
     const determinarRutaRedireccion = async () => {
       if (usuario) {
         const rolUsuario = await obtenerRolUsuario(usuario.uid);
+        console.log(rolUsuario)
         if (rolUsuario === 'profesor' || rolUsuario === 'admin') {
-          setRuta(<Home correoUsuario={usuario.email} />);
+          //console.log("rol",rolUsuario)
+          setRuta(<Home correoUsuario={usuario.email} rol={rolUsuario} />);
         } else {
           setRuta(<Login />);
         }
@@ -52,6 +51,7 @@ function App() {
 
   return (
     <div>
+      
       {ruta}
       {/* <BrowserRouter>
       <Routes>
@@ -64,7 +64,7 @@ function App() {
                     
       </Routes>
       </BrowserRouter> */}
-
+      
     </div>
   ) 
 }

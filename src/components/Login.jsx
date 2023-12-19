@@ -7,7 +7,6 @@ import { getFirestore } from "firebase/firestore";
 
 
 
-
 const auth = getAuth (appFirebase)
 const Login = ()=>{
 
@@ -48,9 +47,11 @@ const Login = ()=>{
                 }
 
                 const userRol = userDoc.data().rol;
-                console.log(userRol);
+                //console.log("este es el rol del usuario:",userRol);
 
                 if (userRol === 'profesor' || userRol === 'admin') {
+                    
+                    
                 }else{
                     alert('No tienes permisos para acceder a esta aplicación')
                     window.location.reload();
