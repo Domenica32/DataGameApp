@@ -129,7 +129,38 @@ text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 30px;
 }
 .agregar{
   padding: 10px 50px ;
+}
+.select-usuarios{
+  background-color: #0E0B28;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    width: 20%;
+}
+.table-estudiantes{
+  width: 60%;
+  td,th{
+    text-align: center;
+  }
+}
+.buscador{
+  width: 40%;
+  input{
+    width: 100%;
+    background-color: #0E0B28;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    text-align: left;
+  }
+}
+.search-icon {
+  margin-left: -44px;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
 }

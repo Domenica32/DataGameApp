@@ -6,6 +6,7 @@ import { getFirestore } from 'firebase/firestore';
 const TablaEstudiantes = ({ nrc }) => {
   const [users, setUsers] = useState([]);
   const [selectedLevel, setSelectedLevel] = useState('level1'); // Estado para el nivel seleccionado
+  const [searchTerm, setSearchTerm] = useState('');
   const db = getFirestore(appFirebase);
   const usersCollection = collection(db, 'users');
 
@@ -36,39 +37,55 @@ const TablaEstudiantes = ({ nrc }) => {
   const handleLevelChange = (e) => {
     setSelectedLevel(e.target.value);
   };
-
+  const handleSearch = (e) => {
+    setSearchTerm(e.target.value);
+  };
+  const filteredUsers = users.filter((user) =>
+  user.email.toLowerCase().includes(searchTerm.toLowerCase())
+);
   return (
     <div className='row'>
       <div className='col col-usuarios'>
-        <div className=' title-usuarios'>
+        
           <select
-            className='form-control'
+            className='select-usuarios'
             required
             onChange={handleLevelChange} // Agregar un controlador de eventos para el cambio de nivel
           >
+            <option value=''>SELECCIONA UN NIVEL</option>
             <option value='level1'>NIVEL 1</option>
             <option value='level2'>NIVEL 2</option>
             <option value='level3'>NIVEL 3</option>
             <option value='level4'>NIVEL 4</option>
             <option value='level5'>NIVEL 5</option>
           </select>
+          <div className='search-container buscador'>
+          {/* <label htmlFor='searchInput'>Buscar por email:</label> */}
+          <input
+            type='text'
+            id='searchInput'
+            value={searchTerm}
+            onChange={handleSearch}
+            placeholder='BUSCAR ESTUDIANTE'
+            
+          />
+                    <span className='search-icon'>🔍</span>
+
         </div>
         <div className='d-grid gap-2'></div>
-        <table className='table table-dark table-hover'>
+        <table className='table table-bordered table-estudiantes'>
           <thead>
             <tr>
               <th>ESTUDIANTE</th>
-              <th>Rol</th>
-              <th>PUNTAJE</th>
+              <th>PUNTUACIÓN</th>
             </tr>
           </thead>
 
           <tbody>
-            {users.map((user) => (
+            {filteredUsers.map((user) => (
               <tr key={user.id}>
                 <td>{user.email}</td>
-                <td>{user.rol}</td>
-                <td>{user.scores[selectedLevel]}</td> {/* Mostrar el puntaje del nivel seleccionado */}
+                <td className='puntaje'>{user.scores[selectedLevel]}</td> {/* Mostrar el puntaje del nivel seleccionado */}
               </tr>
             ))}
           </tbody>
