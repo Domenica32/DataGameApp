@@ -7,8 +7,9 @@ const Intro = ()=>{
 
     return (
         <div className='contenedor'>
-            <h2>Magic Madness App Web</h2>
-           <p>Aqui podrás encontrar el puntaje de cada nivel de tus estudiantes</p>
+            <h2>Data Chronicles</h2>
+            <h3>Odisea Mágica de los Tiempos</h3>
+           <h5>Aqui podrás encontrar el puntaje de tus estudiantes</h5>
            <div className='img-container'> 
            <img className='img-mago' src={Mago}></img>
            </div>

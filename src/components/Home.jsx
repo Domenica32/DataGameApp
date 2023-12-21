@@ -6,6 +6,7 @@ import Intro from '../components/Intro'
 import SingOut from '../assets/singout.png'
 import Create from '../components/Create'
 import TablaEstudiantes from '../components/TablaEstudiantes';
+import Configuraciones from '../components/configuraciones';
 
 const auth = getAuth(appFirebase)
 const Home = ({rol})=>{
@@ -23,7 +24,7 @@ const Home = ({rol})=>{
     <div className="row flex-nowrap">
         <div className="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-global-color">
             <div className="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                    <span className="fs-5 d-none d-sm-inline">Magic Madness App</span>
+                    <span className="fs-5 d-none d-sm-inline">DATA CHRONICLES</span>
                     <ul className="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                     {rol === 'profesor' && (
                           <>
@@ -59,6 +60,12 @@ const Home = ({rol})=>{
                             ISO566-PROGRAMACION lll
                         </button>
                     </li>
+                    <li className="nav-item">
+                        
+                            <button className='btn btn-menu' onClick={()=> setActualPage('configuraciones')}>
+                                CONFIGURACIONES
+                            </button>
+                    </li>
                     </>
                     )}
                     {rol === 'admin' && (
@@ -88,6 +95,7 @@ const Home = ({rol})=>{
             {
                 ActualPage === 'usuarios' ? <Usuarios /> :
                 ActualPage === 'intro' ? <Intro />:
+                ActualPage === 'configuraciones' ? <Configuraciones />:
                 ActualPage === 'tablaEstudiantes' ? <TablaEstudiantes nrc={selectedNRC} />:null
             }
         </div>

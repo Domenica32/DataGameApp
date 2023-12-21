@@ -123,6 +123,7 @@ text-align: center;
   width: 25%;
   text-align: center;
   padding: 10px;
+  
 }
 
 .col-usuarios{
@@ -130,6 +131,9 @@ text-align: center;
   flex-direction: column;
   align-items: center;
   gap: 30px;
+  img{
+    width: 15%;
+  }
 }
 .agregar{
   padding: 10px 50px ;
@@ -163,4 +167,10 @@ text-align: center;
   font-size: 30px;
   cursor: pointer;
   position: absolute;
+}
+.changepass{
+  background: none;
+    border-radius: 12px;
+    width: 30%;
+    padding: 15px;
 }

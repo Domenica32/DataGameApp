@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Imagen from '../assets/logoApp.png';
+import Imagen from '../assets/AppLogo.png';
 import appFirebase from '../credenciales'
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, updateProfile, signOut } from 'firebase/auth';
 import { collection, addDoc,setDoc, getDoc, doc} from 'firebase/firestore';
