@@ -1,7 +1,8 @@
 import React,{useState}  from 'react'
 import { collection, getFirestore,addDoc,setDoc, getDoc, doc } from 'firebase/firestore'
 import appFirebase from '../credenciales'
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { getAuth, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
+import Usuarios from '../components/Usuarios'
 
 //FIREBASE ADMIN 
 // import admin from 'firebase-admin';
@@ -18,6 +19,7 @@ import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 const db = getFirestore(appFirebase);
 
 const Create = ({backFunction}) => {
+    // const [ActualPage, setActualPage] = useState('')
     const [email, setEmail] = useState('')
     const [pass, setPass] = useState('') 
     const [rolUsuario, setRolUsuario] = useState('')
@@ -41,7 +43,7 @@ const Create = ({backFunction}) => {
              email: email,
              rol: rolUsuario,
              });
-            
+             alert("Usuario creado con éxito")
             
          }catch(error){
              console.error("Error al crear usuario: ", error);
@@ -100,16 +102,18 @@ const Create = ({backFunction}) => {
                     </select>
                     </div>
 
-                    <button type='submit' className='btn btn-secondary mt-2 mb-2' > CREAR</button>
+                    <button type='submit' className='btn btn-secondary mt-2 mb-2'onClick={()=> signOut(auth)} > CREAR</button>
                     
                 </form>
 
             </div>
 
         </div>
-      
+        {/* {
+                ActualPage === 'usuarios' ? <Usuarios /> :null
+        } */}
     </div>
-
+    
     
   )
   

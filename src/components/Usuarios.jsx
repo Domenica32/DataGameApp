@@ -63,7 +63,7 @@ const Usuarios = () => {
                 
                   <button  className='btn btn-secondary mt-2 mb-2 agregar' onClick={()=> setActualPage('crear')}> AGREGAR </button>
               </div>
-              <table className='table table-dark table-hover'>
+              <table className='table table-bordered table-estudiantes table-hover'>
                   <thead>
                       <tr>
                           <th>Email</th>

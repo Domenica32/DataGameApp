@@ -60,12 +60,7 @@ const Home = ({rol})=>{
                             ISO566-PROGRAMACION lll
                         </button>
                     </li>
-                    <li className="nav-item">
-                        
-                            <button className='btn btn-menu' onClick={()=> setActualPage('configuraciones')}>
-                                CONFIGURACIONES
-                            </button>
-                    </li>
+                    
                     </>
                     )}
                     {rol === 'admin' && (
@@ -78,6 +73,12 @@ const Home = ({rol})=>{
                             </button>
                         </li>
                     )}
+                    <li className="nav-item">
+                        
+                        <button className='btn btn-menu' onClick={()=> setActualPage('configuraciones')}>
+                            CONFIGURACIONES
+                        </button>
+                </li>
                 </ul>
                 <hr/>
                 <div className="dropdown pb-4">
