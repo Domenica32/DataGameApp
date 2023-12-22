@@ -6,7 +6,7 @@ const auth = getAuth(appFirebase)
 
 
 //importar los componentes
-import Login from '../src/components/login'
+import Login from './components/LoginApp'
 import Home from '../src/components/Home'
 import obtenerRolUsuario from '../src/RolUsuario'
 import '../src/Styles/App.scss'
