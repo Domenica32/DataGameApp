@@ -16,7 +16,7 @@ const Create = ({backFunction}) => {
     const crearUsuario = async (e) => {
         e.preventDefault();
         try {
-          const response = await fetch('https://admin-app-two-psi.vercel.app/crear-usuario', {
+          const response = await fetch('http://localhost:3000/crear-usuario', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
