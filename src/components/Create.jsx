@@ -4,18 +4,7 @@ import appFirebase from '../credenciales'
 import { getAuth, createUserWithEmailAndPassword, signOut } from 'firebase/auth';
 import Usuarios from '../components/Usuarios'
 
-//FIREBASE ADMIN 
-// import admin from 'firebase-admin';
-// import serviceAccount from '../firebase-adminsdk.json';
 
-// admin.initializeApp({
-//   credential: admin.credential.cert(serviceAccount),
-//   databaseURL: "https://gameproject-ac623-default-rtdb.firebaseio.com"
-// });
-
-
-
-//FIN FIREBASE ADMIN
 const db = getFirestore(appFirebase);
 
 const Create = ({backFunction}) => {
@@ -26,31 +15,31 @@ const Create = ({backFunction}) => {
     const auth = getAuth(appFirebase);
     const crearUsuario = async (e) => {
         e.preventDefault();
-        try{
-            // const user = await admin.auth().createUser({
-            //     email: email,
-            //     password: pass,
-            //   });
-
-            // await setDoc(doc(db, 'users',user.uid), {
-            //  email: email,
-            //  rol: rolUsuario,
-            //  });
-            const userCredential=  await createUserWithEmailAndPassword(auth, email, pass)
-            const user = userCredential.user;
-            console.log(user);
-            await setDoc(doc(db, 'users',user.uid), {
-             email: email,
-             rol: rolUsuario,
-             });
-             alert("Usuario creado con éxito")
-            
-         }catch(error){
-             console.error("Error al crear usuario: ", error);
-             alert(error)
-         }
-    };
-    
+        try {
+          const response = await fetch('https://admin-app-two-psi.vercel.app/crear-usuario', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email,
+              password: pass,
+              rol: rolUsuario,
+            }),
+          });
+      
+          if (response.ok) {
+            const result = await response.json();
+            alert(`Usuario creado con éxito. UID: ${result.uid}`);
+          } else {
+            const error = await response.json();
+            alert(`Error al crear usuario: ${error.error}`);
+          }
+        } catch (error) {
+          console.error('Error al crear usuario:', error);
+          alert('Error interno del servidor al crear el usuario');
+        }
+      };
 
 
 
