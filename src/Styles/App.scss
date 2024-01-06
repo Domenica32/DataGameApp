@@ -174,3 +174,8 @@ text-align: center;
     width: 30%;
     padding: 15px;
 }
+.dashboard-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

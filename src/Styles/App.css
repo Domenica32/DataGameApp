@@ -1,0 +1,191 @@
+.contenedor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contenedor h2 {
+  font-family: fantasy;
+  color: #0E0B28;
+}
+
+body {
+  font-family: cursive;
+}
+
+.padre {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50%;
+}
+
+.row-style {
+  display: flex;
+  justify-content: center;
+}
+
+.image-size {
+  width: 40%;
+  margin-top: 50px;
+}
+
+.cajaTexto {
+  background-color: #303F6A;
+  border-color: #303F6A;
+  border-radius: 30px;
+  width: 100%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.cajaTexto:focus {
+  outline: 1px solid black;
+  box-shadow: 0 0 10px black;
+}
+
+.cajaTexto::placeholder {
+  color: rgb(223, 220, 220);
+}
+
+.btnform {
+  background-color: rgb(223, 220, 220);
+  border-color: 5px solid #303F6A;
+  border-radius: 30px;
+  width: 50%;
+  padding: 15px;
+  border-width: 0px;
+  margin-bottom: 20px;
+  color: #303F6A;
+  text-align: center;
+  font-weight: 900;
+}
+
+.card-body {
+  border: none;
+}
+
+.textform {
+  text-align: left;
+  padding-left: 20px;
+  font-weight: 700;
+}
+
+.btn-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.bg-global-color {
+  background-color: #0E0B28;
+}
+
+.pb-4 {
+  list-style-type: none;
+  width: 30%;
+}
+.pb-4 img {
+  width: 100%;
+  cursor: pointer;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.img-container {
+  width: 40%;
+}
+
+.img-mago {
+  width: 100%;
+}
+
+.btn-menu {
+  color: white;
+}
+
+.btn-menu:hover {
+  background-color: #353064;
+}
+
+.sign-out-btn {
+  background-image: url("../assets/singout.png");
+  background-position: center;
+  border: none;
+  cursor: pointer;
+}
+
+.title-usuarios {
+  background-color: #0E0B28;
+  color: white;
+  width: 25%;
+  text-align: center;
+  padding: 10px;
+}
+
+.col-usuarios {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+.col-usuarios img {
+  width: 15%;
+}
+
+.agregar {
+  padding: 10px 50px;
+}
+
+.select-usuarios {
+  background-color: #0E0B28;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 20%;
+}
+
+.table-estudiantes {
+  width: 60%;
+}
+.table-estudiantes td, .table-estudiantes th {
+  text-align: center;
+}
+
+.buscador {
+  width: 40%;
+}
+.buscador input {
+  width: 100%;
+  background-color: #0E0B28;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  text-align: left;
+}
+
+.search-icon {
+  margin-left: -44px;
+  font-size: 30px;
+  cursor: pointer;
+  position: absolute;
+}
+
+.changepass {
+  background: none;
+  border-radius: 12px;
+  width: 30%;
+  padding: 15px;
+}
+
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/*# sourceMappingURL=App.css.map */

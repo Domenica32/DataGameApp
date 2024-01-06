@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { getDocs, query, collection, where } from 'firebase/firestore';
 import appFirebase from '../credenciales';
 import { getFirestore } from 'firebase/firestore';
+import Dashboard from '../components/Dashboard .jsx'
 
 const TablaEstudiantes = ({ nrc }) => {
   const [users, setUsers] = useState([]);
@@ -90,6 +91,9 @@ const TablaEstudiantes = ({ nrc }) => {
             ))}
           </tbody>
         </table>
+        <div className='dasboard-content'>
+        <Dashboard nrc={nrc} selectedLevel={selectedLevel} />
+        </div>
       </div>
     </div>
   );
