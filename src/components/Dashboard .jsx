@@ -39,7 +39,7 @@ const Dashboard = ({ nrc, selectedLevel }) => {
 
   const getChartData = () => {
     const labels = users.map(() => '');
-    const data = users.map((user) => user.scores[selectedLevel] || 0);
+    const data = users.map((user) => user.scores[selectedLevel]?.score || 0);
 
     return {
       labels: labels,

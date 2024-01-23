@@ -38,6 +38,15 @@ const TablaEstudiantes = ({ nrc }) => {
   const handleLevelChange = (e) => {
     setSelectedLevel(e.target.value);
   };
+  const getPuntaje = (user, selectedLevel) => {
+    // Obtener el puntaje del nivel seleccionado
+    const levelData = user.scores[selectedLevel] || {};
+    return {
+      primerTiempo: levelData.primerTiempo || 'N/A',
+      mejorTiempo: levelData.mejorTiempo || 'N/A',
+      score: levelData.score || 'N/A',
+    };
+  };
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
@@ -79,6 +88,9 @@ const TablaEstudiantes = ({ nrc }) => {
             <tr>
               <th>ESTUDIANTE</th>
               <th>PUNTUACIÓN</th>
+              <th>PRIMER PUNTAJE</th>
+              <th>MEJOR PUNTAJE</th>
+
             </tr>
           </thead>
 
@@ -86,7 +98,10 @@ const TablaEstudiantes = ({ nrc }) => {
             {filteredUsers.map((user) => (
               <tr key={user.id}>
                 <td>{user.email}</td>
-                <td className='puntaje'>{user.scores[selectedLevel]}</td> {/* Mostrar el puntaje del nivel seleccionado */}
+                <td className='puntaje'>{getPuntaje(user, selectedLevel).score}</td> {/* Mostrar el puntaje del nivel seleccionado */}
+                <td className='puntaje'>{getPuntaje(user, selectedLevel).primerTiempo}</td> 
+                <td className='puntaje'>{getPuntaje(user, selectedLevel).mejorTiempo}</td> 
+
               </tr>
             ))}
           </tbody>
