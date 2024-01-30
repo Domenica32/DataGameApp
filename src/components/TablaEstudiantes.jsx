@@ -87,9 +87,10 @@ const TablaEstudiantes = ({ nrc }) => {
           <thead>
             <tr>
               <th>ESTUDIANTE</th>
-              <th style="background-color: #c3e3fd;">PUNTUACIÓN</th>
-              <th style="background-color: #ff7676;">PRIMER TIEMPO</th>
-              <th style="background-color: #c6da52;">MEJOR TIEMPO</th>
+              <th style={{ backgroundColor: ' #c3e3fd' }}>PUNTUACIÓN</th>
+              <th style={{ backgroundColor: '#ff7676' }}>PRIMER TIEMPO</th>
+              <th style={{ backgroundColor: '#c6da52' }}>MEJOR TIEMPO</th>
+              
 
             </tr>
           </thead>
