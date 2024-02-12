@@ -16,15 +16,7 @@ const Create = ({backFunction}) => {
     const crearUsuario = async (e) => {
         e.preventDefault();
         try{
-            // const user = await admin.auth().createUser({
-            //     email: email,
-            //     password: pass,
-            //   });
-
-            // await setDoc(doc(db, 'users',user.uid), {
-            //  email: email,
-            //  rol: rolUsuario,
-            //  });
+            
             const userCredential=  await createUserWithEmailAndPassword(auth, email, pass)
             const user = userCredential.user;
             console.log(user);
